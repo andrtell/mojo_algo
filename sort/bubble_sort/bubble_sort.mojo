@@ -3,10 +3,10 @@ def bubble_sort_v4[
     origin: MutOrigin,
     //,
 ](var span: Span[T, origin]):
-    def _less_then_fn(a: T, b: T) -> Bool:
+    def _less_than_fn(a: T, b: T) -> Bool:
         return a < b
 
-    bubble_sort_v4(span, _less_then_fn)
+    bubble_sort_v4(span, _less_than_fn)
 
 
 def bubble_sort_v4[
@@ -14,17 +14,15 @@ def bubble_sort_v4[
     U: def(T, T) -> Bool,
     origin: MutOrigin,
     //,
-](var span: Span[T, origin], less_then_fn: U):
+](var span: Span[T, origin], less_than_fn: U):
     var n = len(span)
-    while True:
+    while n > 1:
         var swap_at = 0
         for i in range(1, n):
-            if less_then_fn(span[i], span[i - 1]):
+            if less_than_fn(span[i], span[i - 1]):
                 span.unsafe_swap_elements(i, i - 1)
                 swap_at = i
         n = swap_at
-        if n <= 1:
-            break
 
 
 def bubble_sort_v3[
