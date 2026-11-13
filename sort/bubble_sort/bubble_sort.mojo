@@ -34,8 +34,8 @@ def bubble_sort_v3[
     while True:
         var swap_at = 0
         for i in range(1, n):
-            if span[i - 1] > span[i]:
-                span.unsafe_swap_elements(i - 1, i)
+            if span[i] < span[i - 1]:
+                span.unsafe_swap_elements(i, i - 1)
                 swap_at = i
         n = swap_at
         if n <= 1:
@@ -51,8 +51,8 @@ def bubble_sort_v2[
     while True:
         var swapped = False
         for i in range(1, n):
-            if span[i - 1] > span[i]:
-                span.unsafe_swap_elements(i - 1, i)
+            if span[i] < span[i - 1]:
+                span.unsafe_swap_elements(i, i - 1)
                 swapped = True
         n -= 1
         if not swapped:
@@ -66,8 +66,8 @@ def bubble_sort_v1[
     while True:
         var swapped = False
         for i in range(1, len(lst)):
-            if lst[i - 1] > lst[i]:
-                lst.swap_elements(i - 1, i)
+            if lst[i] < lst[i - 1]:
+                lst.swap_elements(i, i - 1)
                 swapped = True
         if not swapped:
             break
