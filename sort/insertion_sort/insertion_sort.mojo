@@ -15,11 +15,19 @@ def insertion_sort_v2[
     origin: MutOrigin,
     //,
 ](var span: Span[T, origin], less_than_fn: U):
-    pass
+    for i in range(1, len(span)):
+        for j in range(i, 0, -1):
+            if less_than_fn(span[j - 1], span[j]):
+                break
+            span.unsafe_swap_elements(j, j - 1)
 
 
 def insertion_sort_v1[
     T: Movable & Comparable,
     //,
 ](mut list: List[T]):
-    pass
+    for i in range(1, len(list)):
+        for j in range(i, 0, -1):
+            if list[j] > list[j - 1]:
+                break
+            list.swap_elements(j, j - 1)
