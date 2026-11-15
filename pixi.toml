@@ -6,6 +6,7 @@ platforms = ['linux-64']
 version = "0.1.0"
 
 [tasks]
+format = "find -P -type f -name '*.mojo' -exec mojo format {} \\;"
 
 [dependencies]
 mojo = ">=1.2.0,<2"
