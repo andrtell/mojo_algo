@@ -5,6 +5,7 @@ from selection_sort import (
     selection_sort_v2,
 )
 
+
 def test_selection_sort_v2() raises:
     var got: List[_] = [5, 4, 6, 5, 3, 1, 2, 2, 5]
     var expect: List[_] = [1, 2, 2, 3, 4, 5, 5, 5, 6]
