@@ -1,4 +1,4 @@
-def insertion_sort_v2[
+def insertion_sort_v3[
     T: Movable & Comparable,
     origin: MutOrigin,
     //,
@@ -6,10 +6,10 @@ def insertion_sort_v2[
     def _less_than_fn(a: T, b: T) -> Bool:
         return a < b
 
-    insertion_sort_v2(span, _less_than_fn)
+    insertion_sort_v3(span, _less_than_fn)
 
 
-def insertion_sort_v2[
+def insertion_sort_v3[
     T: Movable,
     U: def(T, T) -> Bool,
     origin: MutOrigin,
@@ -20,6 +20,16 @@ def insertion_sort_v2[
             if less_than_fn(span[j - 1], span[j]):
                 break
             span.unsafe_swap_elements(j, j - 1)
+
+
+def insertion_sort_v2[
+    T: Movable & Comparable,
+    //,
+](mut span: List[T]):
+    # Todo: Reduce swaps.
+    #   Probably requires some unsafe memory shenanigans (moving ownership).
+    #   See Mojos own implementation of sort() which uses insertion_sort
+    pass
 
 
 def insertion_sort_v1[
