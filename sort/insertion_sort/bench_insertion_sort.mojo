@@ -1,7 +1,7 @@
 from std.benchmark import keep, run, Unit
 from std.random import seed, random_float64
 
-from insertion_sort import insertion_sort_v2
+from insertion_sort import insertion_sort_v3
 
 
 def main() raises:
@@ -16,7 +16,7 @@ def main() raises:
 
     def bench_fn() {imm random_list}:
         var tmp = random_list.copy()  # TODO: move out of benchmark
-        insertion_sort_v2(tmp)
+        insertion_sort_v3(tmp)
         keep(tmp)
 
     var report = run(bench_fn)
