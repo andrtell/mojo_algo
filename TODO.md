@@ -1,4 +1,3 @@
-- better bench
 - better tests (assert_in_order, gen_list)
 - mojo + optimal insertion sort
 - text editing utils
