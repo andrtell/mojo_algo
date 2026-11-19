@@ -6,7 +6,8 @@ platforms = ['linux-64']
 version = "0.1.0"
 
 [tasks]
-format = "find -P -type f -name '*.mojo' -exec mojo format {} \\;"
+format = "sh -c 'find -P -type f -name \"*.mojo\" -exec mojo format --quiet {} \\;'"
+test = "sh -c 'find test -name \"test_*.mojo\" -exec mojo -D ASSERT=all -I . {} \\;'"
 
 [dependencies]
 mojo = ">=1.2.0,<2"
