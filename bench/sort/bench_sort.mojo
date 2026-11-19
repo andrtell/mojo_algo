@@ -1,5 +1,5 @@
 from std.random import shuffle
-from std.benchmark import Bench, Bencher, BenchId, keep
+from std.benchmark import Bench, Bencher, BenchId
 
 from code.sort import insertion_sort, selection_sort, bubble_sort
 
@@ -17,7 +17,6 @@ def run_builtin_sort(mut b: Bencher, size: Int):
     b.iter_preproc(
         state, lambda (mut list: List[Int]): sort(list, lt), shuffle_ints
     )
-    keep(state)
 
 
 def run_insertion_sort(mut b: Bencher, size: Int):
@@ -27,7 +26,6 @@ def run_insertion_sort(mut b: Bencher, size: Int):
         lambda (mut list: List[Int]): insertion_sort(list, lt),
         shuffle_ints,
     )
-    keep(state)
 
 
 def run_selection_sort(mut b: Bencher, size: Int):
@@ -37,7 +35,6 @@ def run_selection_sort(mut b: Bencher, size: Int):
         lambda (mut list: List[Int]): selection_sort(list, lt),
         shuffle_ints,
     )
-    keep(state)
 
 
 def run_bubble_sort(mut b: Bencher, size: Int):
@@ -45,7 +42,6 @@ def run_bubble_sort(mut b: Bencher, size: Int):
     b.iter_preproc(
         state, lambda (mut list: List[Int]): bubble_sort(list, lt), shuffle_ints
     )
-    keep(state)
 
 
 def main():
