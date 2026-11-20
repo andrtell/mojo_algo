@@ -2,7 +2,7 @@ from std.testing import assert_true
 
 
 def assert_sorted[
-    T: Movable,
+    T: AnyType,
     origin: ImmOrigin,
     //,
     U: def(T, T) -> Bool,
