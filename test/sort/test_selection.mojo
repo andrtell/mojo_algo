@@ -1,12 +1,14 @@
 from std.testing import TestSuite, assert_equal
-
+from std.random import shuffle
 from code.sort import selection_sort
+from asserts import assert_sorted
 
 
-comptime U = List[Int]
+comptime T = Int
+comptime U = List[T]
 
 
-def lt(a: Int, b: Int) -> Bool:
+def lt(a: T, b: T) -> Bool:
     return a < b
 
 
@@ -33,6 +35,11 @@ def test_selection_sort() raises:
     want = [1, 2, 2, 3, 4, 5, 5, 5, 6]
     f(got, lt)
     assert_equal(got, want)
+
+    got = [n for n in range(100)]
+    shuffle(got)
+    f(got, lt)
+    assert_sorted(got, lt)
 
 
 def main() raises:
